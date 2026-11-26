@@ -1,0 +1,19 @@
+# Exercicio 01 - Quadrado dos numeros de 10 a 150
+
+
+def gravar_arquivo():
+    # O modo 'w' apaga o conteudo anterior, caso o arquivo exista.
+    with open('quadrados.txt', 'w', encoding='utf-8') as arquivo:
+        for numero in range(10, 151):
+            quadrado = numero ** 2
+            print(quadrado)
+            arquivo.write(str(quadrado) + '\n')
+
+
+def main():
+    gravar_arquivo()
+
+
+if __name__ == '__main__':
+    main()
+
