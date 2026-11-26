@@ -1,0 +1,28 @@
+# Exercicio 03 - Leitura dos numeros impares da serie de Fibonacci
+
+
+def validar_impar(numero):
+    if numero % 2 != 0:
+        return numero
+    return -1
+
+
+def ler_arquivo():
+    try:
+        with open('fibonacci.txt', 'r', encoding='utf-8') as arquivo:
+            for linha in arquivo:
+                numero = int(linha.strip())
+                resultado = validar_impar(numero)
+
+                if resultado != -1:
+                    print(resultado)
+    except FileNotFoundError:
+        print('Arquivo nao encontrado. Execute o exercicio 02 primeiro.')
+
+
+def main():
+    ler_arquivo()
+
+
+if __name__ == '__main__':
+    main()
