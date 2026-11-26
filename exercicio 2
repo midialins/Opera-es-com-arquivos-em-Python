@@ -1,0 +1,36 @@
+# Exercicio 02 - Serie de Fibonacci com gravacao em arquivo
+
+
+def gravar_termo(termo, primeiro):
+    # No primeiro termo, verifica e descarta o arquivo anterior.
+    if primeiro:
+        if os.path.exists('fibonacci.txt'):
+            os.remove('fibonacci.txt')
+
+    # O modo 'a' acrescenta cada novo termo ao final do arquivo.
+    with open('fibonacci.txt', 'a', encoding='utf-8') as arquivo:
+        arquivo.write(str(termo) + '\n')
+
+
+def main():
+    n = int(input('Digite a quantidade de termos: '))
+
+    if n <= 0:
+        print('Digite uma quantidade maior que zero.')
+        return
+
+    a = 0
+    b = 1
+
+    for i in range(n):
+        print(a)
+        gravar_termo(a, i == 0)
+
+        proximo = a + b
+        a = b
+        b = proximo
+
+
+if __name__ == '__main__':
+    main()
+
